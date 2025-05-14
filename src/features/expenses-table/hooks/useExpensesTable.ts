@@ -68,7 +68,8 @@ const useExpensesTable = () => {
     setVisibleData(
       applyFilterAndSort(expenses, currentFilter, currentSortDirection)
     );
-  }, [currentFilter, currentSortDirection]);
+  }, [currentFilter, currentSortDirection, expenses]);
+
   return {
     visibleData,
     categories,
