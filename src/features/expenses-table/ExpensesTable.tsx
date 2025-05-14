@@ -1,45 +1,18 @@
 import { EExpenseCategory } from "../../app/enums";
-import useExpensesStore from "../../app/stores/expenses-store";
-import { Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Trash2 } from "lucide-react";
 
 import s from "./expenses-table.module.scss";
-import type { TExpenseCategory } from "../../app/types";
-import { useEffect, useState } from "react";
-
-const categories: TExpenseCategory[] = [];
-
-for (const item in EExpenseCategory) {
-  categories.push({
-    name: EExpenseCategory[item as keyof typeof EExpenseCategory],
-    value: item,
-  });
-}
+import useExpensesTable from "./hooks/useExpensesTable";
 
 const ExpensesTable = () => {
-  const { expenses, deleteExpense } = useExpensesStore();
-  const [visibleData, setVisibleData] = useState(expenses);
-
-  const handleFilterExpense = (category: string) => {
-    if (category === "all") {
-      setVisibleData(expenses);
-      return;
-    }
-    const filteredExpense = expenses.filter(
-      (item) => item.category && String(item.category) === category
-    );
-    setVisibleData(filteredExpense);
-  };
-
-  const handleSort = (e: any) => {
-    e.preventDefault();
-    setVisibleData((prev) => [
-      ...prev.sort(
-        (a, b) => new Date(b.date!).getTime() - new Date(a.date!).getTime()
-      ),
-    ]);
-  };
-
-  useEffect(() => setVisibleData(expenses), [expenses]);
+  const {
+    categories,
+    visibleData,
+    currentSortDirection,
+    handleSort,
+    handleFilterExpense,
+    deleteExpense,
+  } = useExpensesTable();
 
   return (
     <section className={s.tableWrapper}>
@@ -57,18 +30,19 @@ const ExpensesTable = () => {
               <option className={s.option} value="all">
                 Все
               </option>
-              {categories.map((item) => (
-                <option className={s.option} value={item.value}>
+              {categories.map((item, index) => (
+                <option key={index} className={s.option} value={item.value}>
                   {item.name}
                 </option>
               ))}
             </select>
           </div>
           <div className={s.tableActionsItem}>
-            Сортировать по{" "}
-            <a href="" onClick={handleSort}>
+            Сортировать по
+            <a href="" onClick={(e) => handleSort(e)}>
               дате
             </a>
+            {currentSortDirection === "asc" ? <ArrowUp size={12} /> : <ArrowDown size={12} />}
           </div>
         </div>
       </header>

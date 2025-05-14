@@ -17,10 +17,11 @@
     padding: 8px 20px;
     border-radius: 30px;
     transition: background-color 133ms ease-in-out;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    font-size: 12px;
     &:hover {
       cursor: pointer;
       background-color: color.adjust(vars.$category-item-bg, $blackness: 10%);

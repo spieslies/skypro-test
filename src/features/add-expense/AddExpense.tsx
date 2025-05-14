@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { EExpenseCategory } from "../../app/enums";
 import type { TExpenseCategory } from "../../app/types";
 import Button from "../../shared/ui/button/Button";
@@ -19,12 +18,12 @@ import {
 const categories: TExpenseCategory[] = [];
 
 const iconsMap = {
-  [EExpenseCategory.FOOD]: <Hamburger />,
-  [EExpenseCategory.EDUCATION]: <GraduationCap />,
-  [EExpenseCategory.FUN]: <Drama />,
-  [EExpenseCategory.MISC]: <StickyNote />,
-  [EExpenseCategory.RENT]: <Hotel />,
-  [EExpenseCategory.TRANSPORT]: <Bus />,
+  [EExpenseCategory.FOOD]: <Hamburger size={14} />,
+  [EExpenseCategory.EDUCATION]: <GraduationCap size={14}/>,
+  [EExpenseCategory.FUN]: <Drama size={14}/>,
+  [EExpenseCategory.MISC]: <StickyNote size={14}/>,
+  [EExpenseCategory.RENT]: <Hotel size={14}/>,
+  [EExpenseCategory.TRANSPORT]: <Bus size={14}/>,
 };
 
 for (const item in EExpenseCategory) {
@@ -46,10 +45,7 @@ const AddExpenseForm = () => {
     handleDateChange,
     handleSumChange,
     handleAddExpense,
-    expenses
   } = useAddExpense();
-
-  useEffect(() => console.log(expenses), [expenses])
 
   return (
     <section className={styles.addExpense}>

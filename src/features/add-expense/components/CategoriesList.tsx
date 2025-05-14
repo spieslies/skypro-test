@@ -25,7 +25,7 @@ const CategoriesList: React.FC<TCategoriesListProps> = ({
       {items.map((item, index) => {
         const checked = item.value === getCurrentCategory();
         return (
-          <div key={index}>
+          <div key={index} >
             <input
               className={s.category}
               type="radio"
