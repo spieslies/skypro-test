@@ -7,7 +7,7 @@ import HomePage from "../pages/Home";
 import AnalysisPage from "../pages/Analysis";
 
 createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/skypro-test">
     <StrictMode>
       <Routes>
         <Route path="/" element={<HomePage />} />
