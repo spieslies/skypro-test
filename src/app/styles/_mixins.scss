@@ -1,9 +1,12 @@
 @use "vars";
 
 @mixin content {
-  max-width: vars.$max-content-width;
+  max-width: 90%;
   margin: 0 auto;
   width: 100%;
+  @media screen and (min-width: 1024px) {
+    max-width: vars.$max-content-width;
+  }
 }
 
 @mixin inputReset {

@@ -1,6 +1,10 @@
 .grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2.125rem;
-  grid-template-columns: 60% 40%;
-  grid-template-rows: 1fr;
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 1fr;
+  }
 }
