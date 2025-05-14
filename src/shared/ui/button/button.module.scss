@@ -1,0 +1,14 @@
+@use "../../../app/styles/mixins";
+@use "../../../app/styles/vars";
+@use "sass:color";
+
+.button {
+  @include mixins.buttonReset;
+  background-color: vars.$primary-color;
+  color: vars.$text-color-light;
+  width: 100%;
+  padding: 12px;
+  &:hover {
+    background-color: color.adjust(vars.$primary-color, $blackness: 10%);
+  }
+}

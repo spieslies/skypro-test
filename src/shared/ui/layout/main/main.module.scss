@@ -1,0 +1,7 @@
+@use "../../../../app/styles/mixins";
+
+.main {
+  @include mixins.content;
+  flex: 1;
+  padding: 3rem 0;
+}

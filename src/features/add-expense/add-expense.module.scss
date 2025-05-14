@@ -1,0 +1,16 @@
+@use "../../app/styles/mixins";
+
+.addExpense {
+  @include mixins.card;
+  padding: 2rem;
+}
+
+.addExpenseTitle {
+  margin: 0 0 2rem 0;
+}
+
+.field {
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}

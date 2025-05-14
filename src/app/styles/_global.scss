@@ -1,0 +1,29 @@
+@use "vars";
+
+a {
+  font-weight: 500;
+  color: vars.$primary-color;
+  text-decoration: inherit;
+  transition: filter 161.8ms ease-in-out;
+}
+a:hover {
+  filter: brightness(75%);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: vars.$text-color-dark;
+  background-color: vars.$bg-color;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

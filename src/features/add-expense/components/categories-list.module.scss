@@ -1,0 +1,32 @@
+@use "../../../app/styles/vars";
+@use "sass:color";
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+
+  &Label {
+    background-color: vars.$category-item-bg;
+    padding: 8px 20px;
+    border-radius: 30px;
+    transition: background-color 133ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    &:hover {
+      cursor: pointer;
+      background-color: color.adjust(vars.$category-item-bg, $blackness: 10%);
+    };
+    &Active {
+      background-color: color.adjust(vars.$category-item-bg, $blackness: 10%);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@use "../../../app/styles/vars";
+
+.headerNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem
+}
+
+.headerNavLink {
+  color: #000;
+}
+
+:global(.active) {
+  color: vars.$primary-color;
+  border-bottom: 1px solid vars.$primary-color;
+}

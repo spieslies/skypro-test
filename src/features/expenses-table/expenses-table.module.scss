@@ -1,0 +1,110 @@
+@use "../../app/styles/mixins";
+@use "../../app/styles/vars";
+
+.tableWrapper {
+  @include mixins.card;
+  min-width: 60%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+}
+
+.select,
+::picker(select) {
+  appearance: base-select;
+}
+
+.select {
+  border: 1px solid #e2e2e2;
+  transition: 0.4s;
+}
+
+.option {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  color: #000;
+  transition: 0.4s;
+  background-color: #fff;
+  border-left: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
+  &:first-child {
+    border-top: 1px solid #e2e2e2;
+  }
+  &:last-child {
+    border-bottom: 1px solid #e2e2e2;
+  }
+}
+
+.tableActions {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  gap: 1rem;
+  &Item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.tableTitle {
+  margin: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  border-bottom: 1px solid vars.$table-headcell-color;
+}
+
+.tableHeadCell {
+  width: 20%;
+  padding: 8px;
+  font-weight: normal;
+  font-size: 12px;
+  color: vars.$table-headcell-color;
+  text-align: left;
+  &:first-child {
+    padding-left: 32px;
+  }
+  &last-child {
+    padding-right: 32px;
+  }
+}
+
+.tableRow {
+  &:first-child td {
+    padding-top: 18px;
+  }
+}
+
+.tableCell {
+  width: 20%;
+  font-size: 12px;
+  padding: 7px;
+  &:first-child {
+    padding-left: 32px;
+  }
+  &last-child {
+    padding-right: 32px;
+  }
+}
+
+.action {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.noData {
+  padding: 3rem;
+  text-align: center;
+}
